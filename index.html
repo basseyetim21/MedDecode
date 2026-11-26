@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MedDecode — Sign In</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <a class="brand" href="index.html">
+      <img src="assets/project%20logo.webp" alt="MedDecode Logo" />
+      <span>MedDecode</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="active">Login</a>
+      <a href="translator.html">Translator</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="disclaimer-banner" role="note">
+      <strong>Educational Disclaimer:</strong> MedDecode explains medical terms and prescription text for general informational purposes only. It does not provide medical diagnosis, dosing advice, or replace a licensed physician or pharmacist.
+    </div>
+
+    <section class="card">
+      <h1>Welcome to MedDecode</h1>
+      <p class="subtitle">Sign in or create an account to decode prescriptions and medical terms in plain language.</p>
+
+      <form id="auth-form">
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" required autocomplete="email" placeholder="patient@example.com" />
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" required minlength="6" autocomplete="current-password" placeholder="At least 6 characters" />
+        </div>
+
+        <div class="btn-row">
+          <button type="submit" id="login-btn">Log In</button>
+          <button type="button" id="signup-btn" class="secondary">Create Account</button>
+        </div>
+      </form>
+
+      <div id="auth-status" class="status-msg" role="alert"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    MedDecode • Educational Medical Term & Prescription Helper
+  </footer>
+
+  <script type="module" src="js/auth.js"></script>
+</body>
+</html>

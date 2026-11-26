@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MedDecode — Prescription & Medical Term Translator</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <a class="brand" href="translator.html">
+      <img src="assets/project%20logo.webp" alt="MedDecode Logo" />
+      <span>MedDecode</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Login</a>
+      <a href="translator.html" class="active">Translator</a>
+      <a href="contact.html">Contact</a>
+      <button type="button" id="logout-btn" class="secondary">Log Out</button>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="disclaimer-banner" role="note">
+      <strong>Educational Disclaimer:</strong> AI-generated explanations may be incomplete or inaccurate. Always confirm medication instructions, dosages, and potential interactions with your doctor or pharmacist. In an emergency, call your local emergency number immediately.
+    </div>
+
+    <section class="card">
+      <h1>Prescription & Medical Term Lookup</h1>
+      <p class="subtitle" id="user-greeting">Checking session...</p>
+
+      <div class="grid-2">
+        <div class="form-group">
+          <label for="ollama-url">Ollama Base URL</label>
+          <input type="url" id="ollama-url" value="http://localhost:11434" />
+        </div>
+        <div class="form-group">
+          <label for="ollama-model">Ollama Model</label>
+          <input type="text" id="ollama-model" value="llama3.2" placeholder="e.g., llama3.2" />
+        </div>
+      </div>
+
+      <form id="translate-form">
+        <div class="form-group">
+          <label for="medical-input">Prescription Text or Medical Term</label>
+          <textarea id="medical-input" required placeholder="Example: Amoxicillin 500 mg PO TID x 7 days or 'hyperlipidemia'"></textarea>
+        </div>
+
+        <div class="btn-row">
+          <button type="submit" id="explain-btn">Explain with Ollama</button>
+        </div>
+      </form>
+
+      <div id="ollama-status" class="status-msg"></div>
+      <div id="explanation-output" class="result-box">Your plain-language explanation will appear here.</div>
+    </section>
+
+    <section class="card">
+      <h2>Hugging Face Helper (Image OCR / Text Simplification)</h2>
+      <p class="subtitle">Optional Hugging Face Inference integration for extracting text from a prescription image or simplifying text.</p>
+
+      <div class="grid-2">
+        <div class="form-group">
+          <label for="hf-token">Hugging Face Token (kept in browser memory only)</label>
+          <input type="password" id="hf-token" placeholder="hf_..." autocomplete="off" />
+        </div>
+        <div class="form-group">
+          <label for="hf-image">Prescription Image (Optional for OCR)</label>
+          <input type="file" id="hf-image" accept="image/*" />
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button type="button" id="hf-ocr-btn" class="secondary">Extract Text via Hugging Face</button>
+      </div>
+
+      <div id="hf-status" class="status-msg"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    MedDecode • Educational Medical Term & Prescription Helper
+  </footer>
+
+  <script type="module" src="js/translator.js"></script>
+</body>
+</html>
